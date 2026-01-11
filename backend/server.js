@@ -16,7 +16,7 @@ app.use(require('./middleware/requestLogger'));
 
 // Routes
 // Routes
-app.use('/', require('./routes/jobs'));
+app.use('/api', require('./routes/jobs'));
 
 // Health Check
 app.get('/health', (req, res) => {
@@ -24,19 +24,24 @@ app.get('/health', (req, res) => {
 });
 
 // Start Server
-async function startServer() {
-    try {
-        await sequelize.authenticate();
-        console.log('Database connected successfully.');
-        await sequelize.sync(); // Sync models
-        console.log('Database synced.');
+// Start Server for Local Development
+if (require.main === module) {
+    async function startServer() {
+        try {
+            await sequelize.authenticate();
+            console.log('Database connected successfully.');
+            await sequelize.sync(); // Sync models
+            console.log('Database synced.');
 
-        app.listen(PORT, () => {
-            console.log(`Server running on port ${PORT}`);
-        });
-    } catch (error) {
-        console.error('Unable to start server:', error);
+            app.listen(PORT, () => {
+                console.log(`Server running on port ${PORT}`);
+            });
+        } catch (error) {
+            console.error('Unable to start server:', error);
+        }
     }
+    startServer();
 }
 
-startServer();
+// Export for Vercel
+module.exports = app;
