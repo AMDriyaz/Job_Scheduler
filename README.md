@@ -45,5 +45,47 @@ A simplified Job Scheduler system that allows users to create tasks, execute the
 Simulated webhook delivery to `https://webhook.site` (or configurable via `WEBHOOK_URL`).
 Payload includes `jobId`, `taskName`, `status`, and `completedAt`.
 
-## AI Usage Disclosure
-This project was generated with the assistance of Google's AI agent to demonstrate automated coding capabilities.
+## AI Usage Report
+
+### 1. AI Tools Used
+- **Google Deepmind Antigravity**: Primary autonomous coding agent.
+
+### 2. Model Names
+- **Gemini 2.0**: The underlying large language model powering the agent.
+
+### 3. Exact Prompts Used
+The following prompts were used during the development and refinement of this project:
+
+- *"Deploying Job Scheduler to Vercel"*
+- *"Fixing Job Scheduler Bug"*
+- *"The all is Fish now Deployed to vercel"*
+- *"Why not run to server in local"*
+- *"let ready to deployment"*
+- *"The Server statsu in not work is that only show to offlinr status"*
+- *"The Filter icon need to near by refrash not need to between"*
+- *"The darck and light mode is nort work"*
+- *"README must contain: 1. AI tools used... 2. Model names... 3. Exact prompts used..."*
+
+### 4. Contributions by AI
+
+- **UI Design**:
+  - Implemented the Dashboard layout using Tailwind CSS.
+  - Refined the header layout to align the **Filter** and **Refresh** buttons.
+  - Fixed **Dark Mode** support by configuring Tailwind 4 variants (`globals.css`).
+
+- **Backend Logic**:
+  - Implemented the Express.js server structure.
+  - Added the `/api/health` endpoint to resolve monitoring issues.
+  - Configured `vercel.json` routing for deployment.
+
+- **Debugging**:
+  - Investigated and resolved a `500 Internal Server Error` related to MySQL configuration.
+  - Fixed Vercel deployment routing issues.
+  - Debugged local server connectivity (`CONNECTION_REFUSED`) by clearing stale locks.
+
+- **Documentation**:
+  - Created the **Implementation Plan** for deployment.
+  - Wrote the **Vercel Deployment Checklist**.
+  - Generated the **Project Walkthrough** with verification screenshots.
+  - Updated this `README.md` with usage details.
+
