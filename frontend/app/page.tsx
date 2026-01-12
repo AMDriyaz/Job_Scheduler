@@ -51,9 +51,16 @@ export default function Dashboard() {
   useEffect(() => {
     fetchJobs();
     fetchHealth();
+
     // Poll health every 30s
-    const interval = setInterval(fetchHealth, 30000);
-    return () => clearInterval(interval);
+    const healthInterval = setInterval(fetchHealth, 30000);
+    // Poll jobs every 3s for real-time updates
+    const jobsInterval = setInterval(() => fetchJobs(), 3000);
+
+    return () => {
+      clearInterval(healthInterval);
+      clearInterval(jobsInterval);
+    };
   }, [fetchJobs, fetchHealth, statusFilter, priorityFilter]);
 
   const handleCreateJob = async (taskName: string, priority: string, payload: Record<string, unknown>) => {
