@@ -14,6 +14,21 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(require('./middleware/requestLogger'));
 
+// Vercel Database Sync Middleware
+let isSynced = false;
+app.use(async (req, res, next) => {
+    if (!isSynced) {
+        try {
+            await sequelize.sync(); // Sync models
+            isSynced = true;
+            console.log('Database synced (Vercel).');
+        } catch (error) {
+            console.error('Database sync failed:', error);
+        }
+    }
+    next();
+});
+
 // Routes
 // Routes
 app.use('/api', require('./routes/jobs'));
