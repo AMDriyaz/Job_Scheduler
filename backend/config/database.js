@@ -11,6 +11,7 @@ module.exports = {
     production: {
         use_env_variable: 'DATABASE_URL',
         dialect: 'mysql', // Encourage MySQL in production
+        dialectModule: require('mysql2'),
         dialectOptions: {
             ssl: {
                 require: true,

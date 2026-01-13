@@ -3,6 +3,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const { sequelize } = require('./models');
+// Force Vercel to include mysql2
+require('mysql2');
 
 dotenv.config();
 
